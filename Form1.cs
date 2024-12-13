@@ -17,6 +17,7 @@ namespace Problem9
 
     public partial class Form1 : Form
     {
+        public int counter = 9;
         public bool H1Flag = true;
         public bool H2Flag = true;
         public bool H3Flag = true;
@@ -58,10 +59,43 @@ namespace Problem9
             e.Graphics.DrawLine(whitePen, 1040, 140, 1040, 620);
 
         }
+        public string CheckWinner()
+        {
+            if (int.Parse(CounterS.Text) > int.Parse(CounterU.Text))
+            {
+                return "Player S";
+            }
+            else if (int.Parse(CounterS.Text) < int.Parse(CounterU.Text))
+            {
+                return "Player U";
+            }
+            else
+            {
+                return "No One";
+            }
+        }
+        public void GameOver(string Winner)
+        {
+            MessageBox.Show("Game Over", $"Game Over\nWinner is {Winner}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Winner == "No One")
+            {
+                label9.Text = "Draw";
+                label7.Text = "";
+            }
+            else
+            {
+                label9.Text = Winner;
+                label7.Text = "";
+            }
+
+
+
+        }
         public void ChangeImage(Button btn)
         {
             if (btn.Tag.ToString() == "?")
             {
+                
                 if (label7.Text == "Player S")
                 {
                     btn.Image = Resources.S_letter;
@@ -69,6 +103,12 @@ namespace Problem9
                     label7.Text = "Player U";
                     CalculateScore();
                     label7.Tag = "U";
+                    counter--;
+                    if (counter == 0)
+                    {
+                        GameOver(CheckWinner());
+                    }
+                    
                 }
                 else
                 {
@@ -77,6 +117,13 @@ namespace Problem9
                     label7.Text = "Player S";
                     CalculateScore();
                     label7.Tag = "S";
+                    counter--;
+                    if (counter == 0)
+                    {
+                        GameOver(CheckWinner());
+                    }
+                   
+
                 }
 
             }
@@ -103,6 +150,7 @@ namespace Problem9
              4 5 6
              7 8 9
              */
+
             // check Horizental
             
             if (button1.Tag.ToString() == "S" && button2.Tag.ToString() == "U" && button3.Tag.ToString() == "S" && H1Flag)
@@ -155,5 +203,34 @@ namespace Problem9
             ChangeImage((Button)sender);
         }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            // Reset buttons
+            button1.Image = Resources.Question_mark;button1.Tag = "?";
+            button2.Image = Resources.Question_mark;button2.Tag = "?";
+            button3.Image = Resources.Question_mark;button3.Tag = "?";
+            button4.Image = Resources.Question_mark;button4.Tag = "?";
+            button5.Image = Resources.Question_mark;button5.Tag = "?";
+            button6.Image = Resources.Question_mark;button6.Tag = "?";
+            button7.Image = Resources.Question_mark;button7.Tag = "?";
+            button8.Image = Resources.Question_mark;button8.Tag = "?";
+            button9.Image = Resources.Question_mark;button9.Tag = "?";
+            CounterS.Text = "0";
+            CounterU.Text = "0";
+            counter = 9;
+            label7.Text = "Player S";
+            label9.Text = "in Progress";
+            H1Flag = true;
+            H2Flag = true;
+            H3Flag = true;
+
+            V1Flag = true;
+            V2Flag = true;
+            V3Flag = true;
+            
+            D159Flag = true;
+            D357Flag = true;
+
+        }
     }
 }
