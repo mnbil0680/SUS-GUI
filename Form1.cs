@@ -76,7 +76,7 @@ namespace Problem9
         }
         public void GameOver(string Winner)
         {
-            MessageBox.Show("Game Over", $"Game Over\nWinner is {Winner}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Game Over\nWinner is {Winner}","Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (Winner == "No One")
             {
                 label9.Text = "Draw";
