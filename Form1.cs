@@ -9,10 +9,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Problem9
 {
+
+    
+
     public partial class Form1 : Form
     {
+        public bool H1Flag = true;
+        public bool H2Flag = true;
+        public bool H3Flag = true;
+
+        public bool V1Flag = true;
+        public bool V2Flag = true;
+        public bool V3Flag = true;
+
+        public bool D159Flag = true;
+        public bool D357Flag = true;
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -51,12 +67,16 @@ namespace Problem9
                     btn.Image = Resources.S_letter;
                     btn.Tag = "S";
                     label7.Text = "Player U";
+                    CalculateScore();
+                    label7.Tag = "U";
                 }
                 else
                 {
                     btn.Image = Resources.U_letter;
                     btn.Tag = "U";
                     label7.Text = "Player S";
+                    CalculateScore();
+                    label7.Tag = "S";
                 }
 
             }
@@ -65,9 +85,75 @@ namespace Problem9
                 MessageBox.Show("Wrong Choice", "Worng", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void CounterAndLabel(string Symbol)
+        {
+            if (Symbol == "S")
+            {
+                CounterS.Text = (int.Parse(CounterS.Text) + 1).ToString();
+            }
+            else if (Symbol == "U")
+            {
+                CounterU.Text = (int.Parse(CounterU.Text) + 1).ToString();
+            }
+        }
+        public void CalculateScore()
+        {
+            /*
+             1 2 3
+             4 5 6
+             7 8 9
+             */
+            // check Horizental
+            
+            if (button1.Tag.ToString() == "S" && button2.Tag.ToString() == "U" && button3.Tag.ToString() == "S" && H1Flag)
+            {
+                CounterAndLabel(label7.Tag.ToString());
+                H1Flag = false;
+            }
+            if (button4.Tag.ToString() == "S" && button5.Tag.ToString() == "U" && button6.Tag.ToString() == "S" && H2Flag)
+            {
+                CounterAndLabel(label7.Tag.ToString());
+                H2Flag = false;
+            }
+            if (button7.Tag.ToString() == "S" && button8.Tag.ToString() == "U" && button9.Tag.ToString() == "S" && H3Flag)
+            {
+                CounterAndLabel(label7.Tag.ToString());
+                H3Flag = false;
+            }
+
+            // check Horizental
+            if (button1.Tag.ToString() == "S" && button4.Tag.ToString() == "U" && button7.Tag.ToString() == "S" && V1Flag)
+            {
+                CounterAndLabel(label7.Tag.ToString());
+                V1Flag = false;
+            }
+            if (button2.Tag.ToString() == "S" && button5.Tag.ToString() == "U" && button8.Tag.ToString() == "S" && V2Flag)
+            {
+                CounterAndLabel(label7.Tag.ToString());
+                V2Flag = false;
+            }
+            if (button3.Tag.ToString() == "S" && button6.Tag.ToString() == "U" && button9.Tag.ToString() == "S" && V3Flag)
+            {
+                CounterAndLabel(label7.Tag.ToString());
+                V3Flag = false;
+            }
+
+            // check Diagonal
+            if (button1.Tag.ToString() == "S" && button5.Tag.ToString() == "U" && button9.Tag.ToString() == "S" && D159Flag)
+            {
+                CounterAndLabel(label7.Tag.ToString());
+                D159Flag = false;
+            }
+            if (button3.Tag.ToString() == "S" && button5.Tag.ToString() == "U" && button7.Tag.ToString() == "S" && D357Flag)
+            {
+                CounterAndLabel(label7.Tag.ToString());
+                D357Flag = false;
+            }
+        }
         private void button_Click(object sender, EventArgs e)
         {
             ChangeImage((Button)sender);
         }
+
     }
 }

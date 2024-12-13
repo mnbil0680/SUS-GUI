@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.CounterS = new System.Windows.Forms.Label();
+            this.CounterU = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -93,27 +93,27 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Player U :";
             // 
-            // label4
+            // CounterS
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.Location = new System.Drawing.Point(228, 140);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 42);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "0";
+            this.CounterS.AutoSize = true;
+            this.CounterS.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CounterS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CounterS.Location = new System.Drawing.Point(228, 140);
+            this.CounterS.Name = "CounterS";
+            this.CounterS.Size = new System.Drawing.Size(37, 42);
+            this.CounterS.TabIndex = 4;
+            this.CounterS.Text = "0";
             // 
-            // label5
+            // CounterU
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Location = new System.Drawing.Point(228, 210);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 42);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "0";
+            this.CounterU.AutoSize = true;
+            this.CounterU.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CounterU.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CounterU.Location = new System.Drawing.Point(228, 210);
+            this.CounterU.Name = "CounterU";
+            this.CounterU.Size = new System.Drawing.Size(37, 42);
+            this.CounterU.TabIndex = 5;
+            this.CounterU.Text = "0";
             // 
             // label6
             // 
@@ -135,7 +135,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(149, 42);
             this.label7.TabIndex = 7;
-            this.label7.Tag = "";
+            this.label7.Tag = "S";
             this.label7.Text = "Player S";
             // 
             // label8
@@ -170,6 +170,7 @@
             this.button2.TabIndex = 10;
             this.button2.Tag = "?";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button_Click);
             // 
             // button3
             // 
@@ -181,6 +182,7 @@
             this.button3.TabIndex = 11;
             this.button3.Tag = "?";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button_Click);
             // 
             // button4
             // 
@@ -192,6 +194,7 @@
             this.button4.TabIndex = 12;
             this.button4.Tag = "?";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button_Click);
             // 
             // button5
             // 
@@ -203,6 +206,7 @@
             this.button5.TabIndex = 13;
             this.button5.Tag = "?";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button_Click);
             // 
             // button6
             // 
@@ -214,6 +218,7 @@
             this.button6.TabIndex = 14;
             this.button6.Tag = "?";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button_Click);
             // 
             // button7
             // 
@@ -225,6 +230,7 @@
             this.button7.TabIndex = 15;
             this.button7.Tag = "?";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button_Click);
             // 
             // button8
             // 
@@ -236,6 +242,7 @@
             this.button8.TabIndex = 16;
             this.button8.Tag = "?";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button_Click);
             // 
             // button9
             // 
@@ -247,6 +254,7 @@
             this.button9.TabIndex = 17;
             this.button9.Tag = "?";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button_Click);
             // 
             // Form1
             // 
@@ -266,8 +274,8 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.CounterU);
+            this.Controls.Add(this.CounterS);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -288,8 +296,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label CounterS;
+        private System.Windows.Forms.Label CounterU;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
