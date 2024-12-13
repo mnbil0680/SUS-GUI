@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Problem9.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,7 +42,32 @@ namespace Problem9
             e.Graphics.DrawLine(whitePen, 1040, 140, 1040, 620);
 
         }
+        public void ChangeImage(Button btn)
+        {
+            if (btn.Tag.ToString() == "?")
+            {
+                if (label7.Text == "Player S")
+                {
+                    btn.Image = Resources.S_letter;
+                    btn.Tag = "S";
+                    label7.Text = "Player U";
+                }
+                else
+                {
+                    btn.Image = Resources.U_letter;
+                    btn.Tag = "U";
+                    label7.Text = "Player S";
+                }
 
-        
+            }
+            else
+            {
+                MessageBox.Show("Wrong Choice", "Worng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void button_Click(object sender, EventArgs e)
+        {
+            ChangeImage((Button)sender);
+        }
     }
 }
