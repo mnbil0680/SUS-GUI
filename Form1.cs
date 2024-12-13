@@ -41,5 +41,7 @@ namespace Problem9
             e.Graphics.DrawLine(whitePen, 1040, 140, 1040, 620);
 
         }
+
+        
     }
 }
